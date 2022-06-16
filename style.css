@@ -6,16 +6,10 @@
 }
 
 html {
-    font-size: 20px;
+   
     font-family: "Comfortaa", sans-serif;
 }
 
-a {
-    text-decoration: none;
-    color: rgb(85, 69, 79);
-    text-align: center;
-    
-}
 
 .container {
     min-height: 100vh;
@@ -25,9 +19,29 @@ a {
     justify-content: center;
 }
 
-.container h1 {
-    font-size: 50px;
+
+
+#Hero h1 {
+    display: block;
+    font-size: 4rem;
+    color: transparent;
+    width: fit-content;
+    position: relative;
+    animation: text_reveal 0.5s ease forwards;
+    animation-delay: 1.5s;
 }
+
+#Hero h1 span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: rgb(118, 88, 107);
+    animation: text_reveal_box 1s ease;
+    animation-delay: 1s;
+}
+
 /* hero section */
 #Hero {
     background-image: url(image/mesh_hero.png);
@@ -36,6 +50,7 @@ a {
     position: relative;
     z-index: 1;
 }
+
 
 #Hero::after {
     content: "";
@@ -47,4 +62,53 @@ a {
     background-image:linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
     opacity: 1;
     z-index: -1;
+}
+
+
+#Hero .hero {
+    margin: 0 auto;
+    justify-content: center;
+
+}
+
+/* animations - button */
+#Hero .btn_view {
+    display: block;
+    max-width: fit-content;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    color: rgb(118, 88, 107);
+    text-align: center;
+    background-color: transparent;
+    border: 2px solid rgb(118, 88, 107);
+    letter-spacing: 0.3rem;
+    font-size: 0.8rem;
+    margin: auto;
+    margin-top: 40px;
+    transition: 0.2s ease;
+    transition-property: background-color, color;
+}
+
+
+#Hero .btn_view:hover{
+    background-color: rgb(118, 88, 107);
+    color: white;
+}
+
+/* animations title */
+@keyframes text_reveal_box {
+    50% {
+        width: 100%;
+        left: 0%;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes text_reveal {
+    100% {
+        color: rgb(118, 88, 107);
+    }
 }
